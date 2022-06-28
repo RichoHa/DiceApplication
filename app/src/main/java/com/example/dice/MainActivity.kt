@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
         val myFirstDice = Dice(6)
         println("Your ${myFirstDice.numSides} sided dice rolled ${myFirstDice.roll()}!")
 
-        val myFirstDice = Dice(20)
-        println("Your ${myFirstDice.numSides} sided dice rolled ${myFirstDice.roll()}!")
+        val mySecondDice = Dice(20)
+        println("Your ${mySecondDice.numSides} sided dice rolled ${mySecondDice.roll()}!")
     }
 
     class Dice(val numSides: Int) {
