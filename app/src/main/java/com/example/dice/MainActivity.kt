@@ -10,8 +10,13 @@ class MainActivity : AppCompatActivity() {
 
         val myFirstDice = Dice(6)
         val rollResult = myFirstDice.roll()
-        println("Your ${myFirstDice.numSides} sided dice rolled ${rollResult}!")
+        val luckyNumber = 2
 
+        if(rollResult == luckyNumber){
+            println("You are lucky, you rolled a "+luckyNumber)
+        }else(
+                println("Unlucky, a ${rollResult} was rolled instead")
+        )
     }
 
     class Dice(val numSides: Int) {
