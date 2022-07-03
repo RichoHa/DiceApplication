@@ -2,24 +2,36 @@ package com.example.dice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val myFirstDice = Dice(6)
-        val rollResult = myFirstDice.roll()
-        val luckyNumber = 2
-
-        when (rollResult) {
-            luckyNumber -> println("You won!")
-            1 -> println("So sorry! You rolled a 1. Try again!")
-            2 -> println("Sadly, you rolled a 2. Try again!")
-            3 -> println("Unfortunately, you rolled a 3. Try again!")
-            5 -> println("Don't cry! You rolled a 5. Try again!")
-            6 -> println("Apologies! You rolled a 6. Try again!")
+        fun rollDice() {
+            val dice = Dice(6)
+            val diceRoll = dice.roll()
+            val diceImage: ImageView = findViewById(R.id.imageView)
+            diceImage.setImageResource(R.drawable.dice_2)
         }
+
+        val btnRoll = findViewById<Button>(R.id.roll)
+
+            btnRoll.setOnClickListener {
+                rollDice()
+            }
+
+//        when (rollResult) {
+//            luckyNumber -> println("You won!")
+//            1 -> println("So sorry! You rolled a 1. Try again!")
+//            2 -> println("Sadly, you rolled a 2. Try again!")
+//            3 -> println("Unfortunately, you rolled a 3. Try again!")
+//            5 -> println("Don't cry! You rolled a 5. Try again!")
+//            6 -> println("Apologies! You rolled a 6. Try again!")
+//        }
 
     }
 
@@ -30,6 +42,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+
+
 //TODO Give your Dice class another attribute of color and create multiple instances of dice with different numbers of sides and colors!
 //to include an additional attribute, include "val colour: String" in the Dice attributes and include the additional colour when creating an instance of Dice.
 //e.g. "val mySecondDice = Dice(20, "White")" note all instances will have to include an additional attribute.
